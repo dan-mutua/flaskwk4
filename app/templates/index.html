@@ -20,7 +20,7 @@
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="">Home </a>
        {% if current_user.is_authenticated %}
-       <li style="color:white;padding:15px;">{{current_user.username}}</li>
+       <li style="color:black;padding:15px;">{{current_user.username}}</li>
        <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
                   {% else %}
       <a class="nav-item nav-link" href="{{url_for('auth.register')}}">sign Up</a>
