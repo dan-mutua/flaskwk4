@@ -20,7 +20,7 @@ def login():
         flash('Invalid username or Password')
 
     title = "Login"
-    return render_template('auth/login.html',login_form = login_form,title=title)
+    return render_template('login.html',login_form = login_form,title=title)
 
     
 
@@ -32,12 +32,12 @@ def register():
         db.session.add(user)
         db.session.commit()
 
-        mail_message("Welcome to 60 seconds pitch","email/welcome_user",user.email,user=user)
+        mail_message("Welcome alfa quotes","email/welcome_user",user.email,user=user)
 
 
         return redirect(url_for('auth.login'))
         title = "New Account"
-    return render_template('auth/register.html',registration_form = form)
+    return render_template('signup.html',registration_form = form)
 
 @auth.route('/logout')
 @login_required
