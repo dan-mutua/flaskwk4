@@ -1,0 +1,3 @@
+Hello {{user.username}}
+Welcome to Alfa quotes
+We have just seen you have signed up for our application and want to welcome you to the family, when you wish to view new quotes kindly reload.
