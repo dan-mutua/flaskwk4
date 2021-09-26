@@ -5,7 +5,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-<
+{% block styles%}
+{{( super)}}
+<link href="{{url_for('static',filename='/app/static/css/index.css')}}" rel="stylesheet">
+{% endblock%}
   <title>homepage</title>
 </head>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -15,27 +18,27 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home </a>
+      <a class="nav-item nav-link active" href="">Home </a>
       <a class="nav-item nav-link" href="#">sign Up</a>
       <a class="nav-item nav-link" href="#">login</a>
     </div>
   </div>
 </nav>
-<body>
+<body >
   
   {% block content %}
 
-    <div class="card text-center">
+    <div class="card text-center" id="mycards">
       {{ data.quote}}<br>
       author: {{ data.author}}
       <a href="{{data.permalink}}">learn more</a>
     </div>
-    <div class="card text-center">
+    <div class="card text-center" id="mycards">
       {{ data.quote}}<br>
       author: {{ data.author}}
       <a href="{{data.permalink}}">learn more</a>
     </div>
-    <div class="card text-center">
+    <div class="card text-center" id="mycards">
       {{ data.quote}}<br>
       author: {{ data.author}}
       <a href="{{data.permalink}}">learn more</a>
