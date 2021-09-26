@@ -1,6 +1,6 @@
 from flask import render_template
 from . import main
-from request import pickquote
+from request import pickquote,pickquote2,pickquote1
 
 
 # Views
@@ -11,8 +11,10 @@ def index():
     View root page function that returns the index page and its data
     '''
     data=pickquote()
+    data1=pickquote1()
+    data2=pickquote2()
 
-    return render_template('index.html', data=data)
+    return render_template('index.html', data=data,data1=data1,data2=data2)
 
 
 @main.route('/quote/<quote_id>')
