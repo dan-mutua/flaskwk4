@@ -26,14 +26,19 @@ def create_app(config_name):
     app.config.from_object(config_options[config_name])
     # Initializing flask extensions
     bootstrap.init_app(app)
+
     # Initalizing database
     db.init_app(app)
+
     # Initializing login manager
     login_manager.init_app(app)
+
     # Initializing mail
     mail.init_app(app)
+
     #initializing simple review editor
     simple.init_app(app)
+    
     # Registering the blueprint
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)

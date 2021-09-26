@@ -1,3 +1,4 @@
+
 from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
@@ -15,7 +16,7 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(255), index = True)
     email = db.Column(db.String(255), unique = True, index = True)
     passcode = db.Column(db.String(255))
-    minutepitches = db.relationship('NewPitch', backref = 'user', lazy = 'dynamic')
+   
     @property
     def password(self):
         raise AttributeError('You cannot read the password attribute')
@@ -28,7 +29,7 @@ class User(UserMixin, db.Model):
         return f'User {self.username}'
 #api endpoint class
 class Quote_Body:
-    randomQuote = []
+    _data = []
     def __init__(self, quote, author, permalink):
         self.quote = quote
         self.author = author

@@ -23,7 +23,7 @@ class Config:
     SIMPLEMDE_USE_CDN = True
 
 class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://moringa:mutua@localhost/lionsden'
+    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://moringa:mutua@localhost/alfa'
 
 
 class ProdConfig(Config):
@@ -41,7 +41,7 @@ class DevConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://moringa:mutua@localhost/lionsden'
+    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://moringa:mutua@localhost/alfa'
     
     DEBUG = True
 
