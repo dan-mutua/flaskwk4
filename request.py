@@ -7,5 +7,5 @@ import json
 
 def pickquote():
     req = requests.get('http://quotes.stormconsultancy.co.uk/random.json')
-    data = req.content
+    data = json.loads(req.content)
     return data
