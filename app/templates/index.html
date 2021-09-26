@@ -19,8 +19,13 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="">Home </a>
-      <a class="nav-item nav-link" href="{{url_for('auth.login')}}">sign Up</a>
-      <a class="nav-item nav-link" href="{{url_for('auth.register')}}">login</a>
+       {% if current_user.is_authenticated %}
+       <li style="color:white;padding:15px;">{{current_user.username}}</li>
+       <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
+                  {% else %}
+      <a class="nav-item nav-link" href="{{url_for('auth.register')}}">sign Up</a>
+      <a class="nav-item nav-link" href="{{url_for('auth.login')}}">login</a>
+       {%endif%}
     </div>
   </div>
 </nav>
