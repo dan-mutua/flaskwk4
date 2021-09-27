@@ -20,11 +20,11 @@ def login():
         flash('Invalid username or Password')
 
     title = "Login"
-    return render_template('login.html',login_form = login_form,title=title)
+    return render_template('auth/login.html',login_form = login_form,title=title)
 
     
 
-@auth.route('/register',methods = ["GET","POST"])
+@auth.route('/signup',methods = ["GET","POST"])
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
@@ -37,7 +37,7 @@ def register():
 
         return redirect(url_for('auth.login'))
         title = "New Account"
-    return render_template('signup.html',registration_form = form)
+    return render_template('auth/signup.html',registration_form = form)
 
 @auth.route('/logout')
 @login_required

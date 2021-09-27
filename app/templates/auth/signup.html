@@ -1,9 +1,12 @@
-{% extends 'auth/auth-base.html'%} 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 {% import 'bootstrap/wtf.html' as wtf%} 
-
+<div class="navbar-nav">
+      <a class="nav-item nav-link active" href="{{url_for('main.index')}}">Home </a>
+</div>  
 {% block content %}
 <div class="col-md-4"> </div>
 <div class="col-md-8 container">
+  <p>sign up to receive random quotes to your email when they are uploaded</p>
 
     {{wtf.quick_form(registration_form)}}
 

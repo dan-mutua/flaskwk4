@@ -18,9 +18,19 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="">Home </a>
-      <a class="nav-item nav-link" href="{{url_for('auth.login')}}">sign Up</a>
-      <a class="nav-item nav-link" href="{{url_for('auth.signup')}}">login</a>
+        <ul class="navbar-nav p-2">
+            <li><a class="nav-item nav-link active" href="">Home </a></li>
+          {% if current_user.is_authenticated %}
+          <li style="color:black;padding:15px;">{{current_user.username}}</li>
+          <li><a href="{{url_for('auth.logout')}}">Sign out</a></li><br>
+
+
+          <li><a href="{{url_for('main.admin')}}">admin</a></li
+                      {% else %}
+          <li><a class="nav-item nav-link" href="{{url_for('auth.register')}}">sign Up</a></li>
+          <li> <a class="nav-item nav-link" href="{{url_for('auth.login')}}">login</a></li>
+        </ul> 
+       {%endif%}
     </div>
   </div>
 </nav>
@@ -32,16 +42,19 @@
         {{ data.quote}}<br>
         author: {{ data.author}}
         <a href="{{data.permalink}}">learn more</a>
+        <a href="{{'main.comment'}}" class="btn btn-sm btn-success"> Comment</a>
       </div>
       <div class="card text-center m-3"  style="width: 18rem;" style= "margin-top: 20px;"  id="mycards">
         {{ data1.quote}}<br>
         author: {{ data1.author}}
         <a href="{{data.permalink}}">learn more</a>
+        <a href="{{'main.comment'}}" class="btn btn-sm btn-success"> Comment</a>
       </div>
       <div class="card text-center m-3"  style="width: 18rem;" style= "margin-top: 20px;" id="mycards">
         {{ data2.quote}}<br>
         author: {{ data2.author}}
         <a href="{{data.permalink}}">learn more</a>
+        <a href="{{'main.comment'}}" class="btn btn-sm btn-success"> Comment</a>
       </div>
     </div>
 
