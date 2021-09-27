@@ -17,6 +17,7 @@ class Config:
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
+    SENDER_EMAIL='quotesalfa@gmail.com'
 
     
     SIMPLEMDE_JS_IIFE = True

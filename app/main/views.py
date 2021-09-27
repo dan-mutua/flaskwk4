@@ -1,3 +1,4 @@
+from flask_login.mixins import UserMixin
 from app.main.forms import CommentsForm
 from flask import render_template,url_for,redirect
 from .. import db
@@ -20,6 +21,13 @@ def index():
     
 
     return render_template('index.html', data=data,data1=data1,data2=data2)
+
+@main.route('/table')
+@login_required
+def table():
+    users=User.query.all()
+    return render_template('table.html',users=users)
+
 
 
 @main.route('/quote/<quote_id>')
