@@ -7,6 +7,7 @@ from datetime import datetime
 
 
 
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
@@ -47,40 +48,6 @@ class Role(db.Model):
     def __repr__(self):
         return f'User {self.name}'
 
-
-
-
-
-class Quote(db.Model):
-    __tablename__= 'pitches'
-
-    id = db.Column(db.Integer,primary_key = True)
-    title = db.Column(db.String)
-    body = db.Column(db.String)
-    category = db.Column(db.String)
-    date = db.Column(db.DateTime,default=datetime.utcnow)
-
-
-
-
-    def save_quote(self):
-        db.session.add(self)
-        db.session.commit()
-
-
-    @classmethod
-    def get_pitch(cls,id):
-        pitches = Quote.query.filter_by(id=id).all()
-        return pitches
-
-    @classmethod
-    def get_all_pitches(cls):
-        pitches = Quote.query.order_by('-id').all()
-        return pitches
-
-
-    def __repr__(self):
-        return f'Quote {self.pitch_title}'
 
 class Comment(db.Model):
     __tablename__='comments'
